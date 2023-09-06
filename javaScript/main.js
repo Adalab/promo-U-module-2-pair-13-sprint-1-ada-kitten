@@ -52,3 +52,5 @@ const kittenThree  = `<li class="card">
 catsSection.innerHTML = kittenOne;
 catsSection.innerHTML += kittenTwo;
 catsSection.innerHTML += kittenThree;
+
+// += lo que hace es concatenar los elementos para que no se sobreescriban. 
