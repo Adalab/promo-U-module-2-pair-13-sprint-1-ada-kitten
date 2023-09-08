@@ -76,3 +76,22 @@ catsSection.innerHTML += kittenThree;*/
 
 catsSection.innerHTML = kittenOne + kittenTwo + kittenThree;
 
+const input_search_desc = document.querySelector('.js_in_search_desc');
+
+const descrSearchText = input_search_desc.value;
+
+if( card.classList.contains('hidden')){
+    kittenOne.classList.add('hidden');
+}
+
+if( kittenDesc1.includes(descrSearchText) ) {
+    kittenOne.classList.remove ('hidden');
+    }
+    
+    if( kittenDesc2.includes(descrSearchText) ) {
+    //Completa el código
+    }
+    
+    if( kittenDesc3.includes(descrSearchText) ) {
+    //Completa el código
+    }
