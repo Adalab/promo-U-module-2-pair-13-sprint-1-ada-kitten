@@ -95,13 +95,14 @@ if (kittenRace1 === "") {html= `Uy que despiste, no sabemos su raza`;} else {htm
 */
 
 
-if( kittenDesc1.includes(descrSearchText) ) {catsSection.innerHTML = kittenOne;
-}
-if( kittenDesc2.includes(descrSearchText) ) {catsSection.innerHTML = kittenTwo;
-}
-if( kittenDesc3.includes(descrSearchText) ) {catsSection.innerHTML = kittenThree;
-}
-else {catsSection = null;}
-       
+if( kittenDesc1.includes(descrSearchText) ) {catsSection.innerHTML = kittenOne;}
+if( kittenDesc2.includes(descrSearchText) ) {catsSection.innerHTML = kittenTwo;}
+if( kittenDesc3.includes(descrSearchText) ) {catsSection.innerHTML = kittenThree;}
+
+if (descrSearchText==="") {catsSection.innerHTML = 'no hay gatos que mostrar';}
+
+/*else {catsSection.innerHTML = 'no hay coincidencias';}*/
+
+
 /*catsSection.innerHTML = kittenOne + kittenTwo + kittenThree;*/
 
