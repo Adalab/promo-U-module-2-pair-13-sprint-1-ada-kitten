@@ -105,7 +105,7 @@ const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error'); 
 const btnCancel = document.querySelector('.js-cancel');
 
-
+/*
 btnAddCat.addEventListener ('click', () => {
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
@@ -115,7 +115,7 @@ btnAddCat.addEventListener ('click', () => {
     if (valueDesc === '' || valuePhoto === '' || valueName === '') {
         labelMessageError.innerHTML= '¡Uy! parece que has olvidado algo"'
     } else {}
-});
+});*/
 
 btnCancel.addEventListener('click', () => {
   inputDesc.value = "";
@@ -154,5 +154,43 @@ function handleClickNewCatForm(event) {
       //completa el código
     }
   }
-
 btn.addEventListener('click', handleClickNewCatForm);
+
+//*segundo ejercicio 2.5 funciones martes*/
+
+function addNewKitten(event) {
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+  const valueRace = inputRace.value; /*porque no está  en if*/
+  console.log(`holisss`) /*al dar añadir se imprime Holisss*/
+
+    if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+        labelMessageError.innerHTML= '¡Uy! parece que has olvidado algo :('
+    } else {}
+}
+btnAddCat.addEventListener('click', addNewKitten);
+
+/*
+he puesto bien nombre constante btnAddCat y añadido dentro de la funcion lo que definimos el otro dia con addEventListener 
+*/
+
+/* tercer ejercicio, creo que es algo así, pero no se por donde seguir ... además que habrá cosas ya definidas que puedan intervenir en este codigo de listar gatos... pedir SOPORTE mñn  :) */
+
+function renderKitten(url, desc, name, race) {
+    const kittenHtml1 = `<li class="card">
+    <article>
+        <img
+        class="card_img"
+        src= "${url}" alt="${name}"
+        />
+            <h3 class="card_title">${name.toUpperCase()}</h3>
+            <h4 class="card_race">${race}</h4>
+            <p class="card_description">${desc}</p>
+    </article>
+    </li>`;
+  return kittenHtml1;  
+}
+catsSection += kittenHtml1;
+
+
