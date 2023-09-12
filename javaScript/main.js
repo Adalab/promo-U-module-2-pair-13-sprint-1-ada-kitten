@@ -96,9 +96,8 @@ if (descrSearchText==="") {catsSection.innerHTML = 'no hay gatos que mostrar';}
 
 /*catsSection.innerHTML = kittenOne + kittenTwo + kittenThree; ya no vale, porque le hemos metido los condicionales para buscar por descripcion*/
 
+
 const btnAddCat = document.querySelector(".js-btn-add");
-const openClose = document.querySelector('.js-open-close');
-const addForm = document.querySelector(".js-form");
 const inputDesc = document.querySelector('.js-input-desc');
 const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
@@ -106,9 +105,6 @@ const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error'); 
 const btnCancel = document.querySelector('.js-cancel');
 
-openClose.addEventListener('click', () => {
-    addForm.classList.toggle('collapsed');
-});
 
 btnAddCat.addEventListener ('click', () => {
   const valueDesc = inputDesc.value;
@@ -126,5 +122,37 @@ btnCancel.addEventListener('click', () => {
   inputPhoto.value = "";
   inputName.value = "";
   inputRace.value = "";
-  addForm.classList.toggle('collapsed');
+  newForm.classList.toggle('collapsed');
+}); 
+
+/*
+const openClose = document.querySelector('.js-open-close');
+const addForm = document.querySelector(".js-form");
+openClose.addEventListener('click', () => {
+    addForm.classList.toggle('collapsed');
 });
+manera facil de mostrar/ocultar menu añadir gato*/
+
+const btn = document.querySelector('.js-btn-newForm');
+
+const newForm = document.querySelector('.js-form'); 
+
+function showNewCatForm() {
+    newForm.classList.remove('collapsed');
+}
+function hideNewCatForm() {
+    newForm.classList.add('collapsed');
+}
+
+function handleClickNewCatForm(event) {
+    event.preventDefault();
+    if (newForm.classList.contains('collapsed')) {
+        showNewCatForm();
+      //completa el código
+    } else {
+        hideNewCatForm();
+      //completa el código
+    }
+  }
+
+btn.addEventListener('click', handleClickNewCatForm);
