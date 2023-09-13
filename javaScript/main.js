@@ -35,64 +35,81 @@ const descrSearchText = input_search_desc.value;
 
 /*para lo de la raza, en cada kittenOne, Two y Three, en <h4 class="card_race"> ponemos ${html} (en vez de kittenRace1, 2 y 3) </h4>*/
 
-let html1 = '';
-if (kittenRace1 === "") {html1 = `Uy que despiste, no sabemos su raza`;} else {html1 = kittenRace1;};
+// let html1 = '';
+// if (kittenRace1 === "") {html1 = `Uy que despiste, no sabemos su raza`;} else {html1 = kittenRace1;};
 
-let html2 = '';
-if (kittenRace2 === "") {html2 = `Uy que despiste, no sabemos su raza`;} else {html2 = kittenRace2;};
+// let html2 = '';
+// if (kittenRace2 === "") {html2 = `Uy que despiste, no sabemos su raza`;} else {html2 = kittenRace2;};
 
-let html3 = '';
-if (kittenRace3 === "") {html3= `Uy que despiste, no sabemos su raza`;} else {html3 = kittenRace3;};
+// let html3 = '';
+// if (kittenRace3 === "") {html3= `Uy que despiste, no sabemos su raza`;} else {html3 = kittenRace3;};
 
 /*para que si no pone la raza diga: `Uy que despiste, no sabemos su raza`*/
 
-const kittenOne = `<li class="card">
-<article>
-    <img
-    class="card_img"
-    src=${kittenImage1}
-    alt="gatito"
-    />
-        <h3 class="card_title">${kittenName1.toUpperCase()}</h3>
-        <h4 class="card_race">${html1}</h4>
-        <p class="card_description">${kittenDesc1}</p>
-</article>
-</li>`;
+// const kittenOne = `<li class="card">
+// <article>
+//     <img
+//     class="card_img"
+//     src=${kittenImage1}
+//     alt="gatito"
+//     />
+//         <h3 class="card_title">${kittenName1.toUpperCase()}</h3>
+//         <h4 class="card_race">${html1}</h4>
+//         <p class="card_description">${kittenDesc1}</p>
+// </article>
+// </li>`;
 
-const kittenTwo = `<li class="card">
-    <img
+// const kittenTwo = `<li class="card">
+//     <img
+//         class="card_img"
+//         src=${kittenImage2}
+//         alt="sphynx-cat"
+//     />
+//         <h3 class="card_title">${kittenName2.toUpperCase()}</h3>
+//         <h4 class="card_race">${html2}</h4>
+//         <p class="card_description">${kittenDesc2}</p>
+// </li>`;
+
+// const kittenThree  = `<li class="card">
+//     <img
+//         class="card_img"
+//         src=${kittenImage3}
+//         alt="maine-coon-cat"
+//     />
+//         <h3 class="card_title">${kittenName3.toUpperCase()}</h3>
+//         <h4 class="card_race">${html3}</h4>
+//         <p class="card_description">${kittenDesc3}
+//             </p>
+// </li>`; 
+const kittenOne = renderKitten(kittenImage1, kittenDesc1, kittenName1, kittenRace1);
+const kittenTwo = renderKitten(kittenImage2, kittenDesc2, kittenName2, kittenRace2);
+const kittenThree = renderKitten(kittenImage3, kittenDesc3, kittenName3, kittenRace3);
+
+function renderKitten(url, desc, name, race) {
+    const kittenHtml = `<li class="card">
+    <article>
+        <img
         class="card_img"
-        src=${kittenImage2}
-        alt="sphynx-cat"
-    />
-        <h3 class="card_title">${kittenName2.toUpperCase()}</h3>
-        <h4 class="card_race">${html2}</h4>
-        <p class="card_description">${kittenDesc2}</p>
-</li>`;
-
-const kittenThree  = `<li class="card">
-    <img
-        class="card_img"
-        src=${kittenImage3}
-        alt="maine-coon-cat"
-    />
-        <h3 class="card_title">${kittenName3.toUpperCase()}</h3>
-        <h4 class="card_race">${html3}</h4>
-        <p class="card_description">${kittenDesc3}
-            </p>
-</li>`; 
-
+        src= "${url}" alt="${name}"
+        />
+            <h3 class="card_title">${name.toUpperCase()}</h3>
+            <h4 class="card_race">${race}</h4>
+            <p class="card_description">${desc}</p>
+    </article>
+    </li>`;
+    return kittenHtml;  
+}
 /*
 catsSection.innerHTML = kittenOne;
 catsSection.innerHTML += kittenTwo;
 catsSection.innerHTML += kittenThree;
 += lo que hace es concatenar los elementos para que no se sobreescriban. */
 
-if( kittenDesc1.includes(descrSearchText) ) {catsSection.innerHTML = kittenOne;}
-if( kittenDesc2.includes(descrSearchText) ) {catsSection.innerHTML = kittenTwo;}
-if( kittenDesc3.includes(descrSearchText) ) {catsSection.innerHTML = kittenThree;}
+// if( kittenDesc1.includes(descrSearchText) ) {catsSection.innerHTML = kittenOne;}
+// if( kittenDesc2.includes(descrSearchText) ) {catsSection.innerHTML = kittenTwo;}
+// if( kittenDesc3.includes(descrSearchText) ) {catsSection.innerHTML = kittenThree;}
 
-if (descrSearchText==="") {catsSection.innerHTML = 'no hay gatos que mostrar';}
+// if (descrSearchText==="") {catsSection.innerHTML = 'no hay gatos que mostrar';}
 
 /*catsSection.innerHTML = kittenOne + kittenTwo + kittenThree; ya no vale, porque le hemos metido los condicionales para buscar por descripcion*/
 
@@ -177,20 +194,48 @@ he puesto bien nombre constante btnAddCat y añadido dentro de la funcion lo que
 
 /* tercer ejercicio, creo que es algo así, pero no se por donde seguir ... además que habrá cosas ya definidas que puedan intervenir en este codigo de listar gatos... pedir SOPORTE mñn  :) */
 
-function renderKitten(url, desc, name, race) {
-    const kittenHtml1 = `<li class="card">
-    <article>
-        <img
-        class="card_img"
-        src= "${url}" alt="${name}"
-        />
-            <h3 class="card_title">${name.toUpperCase()}</h3>
-            <h4 class="card_race">${race}</h4>
-            <p class="card_description">${desc}</p>
-    </article>
-    </li>`;
-    return kittenHtml1;  
+
+// catsSection += kittenHtml1;
+
+
+// const input_search_desc = document.querySelector('.js_in_search_desc');
+// const descrSearchText = input_search_desc.value;
+// Repetición de las constantes para acordarnos de que tienen que llamarse aqui
+
+const filterKitten = (event) => {
+    event.preventDefault();
+    if (kittenDesc1.includes(descrSearchText)) {
+        catsSection.innerHTML += kittenOne;
+    }
+    if (kittenDesc2.includes(descrSearchText)) {
+        catsSection.innerHTML += kittenTwo;
+    }
+    if (kittenDesc3.includes(descrSearchText)) {
+        catsSection.innerHTML += kittenThree;
+    }
+    // if (descrSearchText==="") {catsSection.innerHTML = 'no hay gatos que mostrar';}
+};
+
+const btnSearch = document.querySelector('.js-btn-search');
+btnSearch.addEventListener('click', filterKitten);
+
+let html1 = '';
+if (kittenRace1 === "") {html1 = `Uy que despiste, no sabemos su raza`;} else {html1 = kittenRace1;};
+
+let html2 = '';
+if (kittenRace2 === "") {html2 = `Uy que despiste, no sabemos su raza`;} else {html2 = kittenRace2;};
+
+let html3 = '';
+if (kittenRace3 === "") {html3= `Uy que despiste, no sabemos su raza`;} else {html3 = kittenRace3;};
+
+const race = inputRace.value;
+
+function renderRace(race) {
+    if(race === "" ){
+        return 'Uy que despiste, no sabemos su raza';
+    }else {
+        return race;
+    }
 }
-catsSection += kittenHtml1;
 
-
+// kittenRace1.innerHTML = race;
