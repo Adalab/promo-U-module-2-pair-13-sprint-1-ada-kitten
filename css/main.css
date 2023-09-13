@@ -41,6 +41,7 @@ li {
 
 .menu .item {
   padding: 10px;
+  cursor: pointer;
 }
 
 .header .img {
