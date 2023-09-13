@@ -107,10 +107,10 @@ const btnCancel = document.querySelector('.js-cancel');
 
 /*
 btnAddCat.addEventListener ('click', () => {
-  const valueDesc = inputDesc.value;
-  const valuePhoto = inputPhoto.value;
-  const valueName = inputName.value;
-  const valueRace = inputRace.value;
+    const valueDesc = inputDesc.value;
+    const valuePhoto = inputPhoto.value;
+    const valueName = inputName.value;
+    const valueRace = inputRace.value;
 
     if (valueDesc === '' || valuePhoto === '' || valueName === '') {
         labelMessageError.innerHTML= '¡Uy! parece que has olvidado algo"'
@@ -118,11 +118,11 @@ btnAddCat.addEventListener ('click', () => {
 });*/
 
 btnCancel.addEventListener('click', () => {
-  inputDesc.value = "";
-  inputPhoto.value = "";
-  inputName.value = "";
-  inputRace.value = "";
-  newForm.classList.toggle('collapsed');
+    inputDesc.value = "";
+    inputPhoto.value = "";
+    inputName.value = "";
+    inputRace.value = "";
+    newForm.classList.toggle('collapsed');
 }); 
 
 /*
@@ -153,17 +153,17 @@ function handleClickNewCatForm(event) {
         hideNewCatForm();
       //completa el código
     }
-  }
+}
 btn.addEventListener('click', handleClickNewCatForm);
 
 //*segundo ejercicio 2.5 funciones martes*/
 
 function addNewKitten(event) {
-  const valueDesc = inputDesc.value;
-  const valuePhoto = inputPhoto.value;
-  const valueName = inputName.value;
-  const valueRace = inputRace.value; /*porque no está  en if*/
-  console.log(`holisss`) /*al dar añadir se imprime Holisss*/
+    const valueDesc = inputDesc.value;
+    const valuePhoto = inputPhoto.value;
+    const valueName = inputName.value;
+    const valueRace = inputRace.value; /*porque no está  en if*/
+console.log(`holisss`) /*al dar añadir se imprime Holisss*/
 
     if (valueDesc === '' || valuePhoto === '' || valueName === '') {
         labelMessageError.innerHTML= '¡Uy! parece que has olvidado algo :('
@@ -189,7 +189,7 @@ function renderKitten(url, desc, name, race) {
             <p class="card_description">${desc}</p>
     </article>
     </li>`;
-  return kittenHtml1;  
+    return kittenHtml1;  
 }
 catsSection += kittenHtml1;
 
