@@ -31,7 +31,7 @@ esto ya no hace falta porque hemos definido cada caracteristica (variable const)
 
 const catsSection = document.querySelector(".js-list");
 const input_search_desc = document.querySelector('.js_in_search_desc');
-const descrSearchText = input_search_desc.value;
+
 
 /*para lo de la raza, en cada kittenOne, Two y Three, en <h4 class="card_race"> ponemos ${html} (en vez de kittenRace1, 2 y 3) </h4>*/
 
@@ -81,6 +81,8 @@ const descrSearchText = input_search_desc.value;
 //         <p class="card_description">${kittenDesc3}
 //             </p>
 // </li>`; 
+
+/*
 const kittenOne = renderKitten(kittenImage1, kittenDesc1, kittenName1, kittenRace1);
 const kittenTwo = renderKitten(kittenImage2, kittenDesc2, kittenName2, kittenRace2);
 const kittenThree = renderKitten(kittenImage3, kittenDesc3, kittenName3, kittenRace3);
@@ -98,7 +100,8 @@ function renderKitten(url, desc, name, race) {
     </article>
     </li>`;
     return kittenHtml;  
-}
+}*/
+
 /*
 catsSection.innerHTML = kittenOne;
 catsSection.innerHTML += kittenTwo;
@@ -194,27 +197,69 @@ he puesto bien nombre constante btnAddCat y añadido dentro de la funcion lo que
 
 /* tercer ejercicio, creo que es algo así, pero no se por donde seguir ... además que habrá cosas ya definidas que puedan intervenir en este codigo de listar gatos... pedir SOPORTE mñn  :) */
 
-
 // catsSection += kittenHtml1;
 
-
 // const input_search_desc = document.querySelector('.js_in_search_desc');
-// const descrSearchText = input_search_desc.value;
+//const descrSearchText = input_search_desc.value;
 // Repetición de las constantes para acordarnos de que tienen que llamarse aqui
+
+const kittenData_1 = {
+    image: 'https://dev.adalab.es/gato-siames.webp',
+    name: 'Anastacio',
+    desc: ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
+    race: 'Siamés',
+  };
+  
+  const kittenData_2 = {
+    image: 'https://dev.adalab.es/sphynx-gato.webp',
+    name: 'Fiona',
+    desc: 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.',
+    race: 'Sphynx',
+  };
+
+  const kittenData_3 = {
+    image: 'https://dev.adalab.es/maine-coon-cat.webp',
+    name: 'Cielo',
+    desc: 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.',
+    race: 'Main Coon',
+  };
+
+  function renderKitten(kittenData) {
+    const li = `<li class="card">
+    <article>
+        <img
+        class="card_img"
+        src= "${kittenData.image}" alt="${kittenData.name}"
+        />
+            <h3 class="card_title">${kittenData.name}</h3>
+            <h4 class="card_race">${kittenData.race}</h4>
+            <p class="card_description">${kittenData.desc}</p>
+    </article>
+    </li>`;
+    catsSection.innerHTML+=li;  
+  }
+ renderKitten(kittenData_2);
+ renderKitten(kittenData_1);
+ renderKitten(kittenData_3);
 
 const filterKitten = (event) => {
     event.preventDefault();
+    const descrSearchText = input_search_desc.value;
+    catsSection.innerHTML = "";
     if (kittenDesc1.includes(descrSearchText)) {
-        catsSection.innerHTML += kittenOne;
+       renderKitten(kittenData_1);
     }
     if (kittenDesc2.includes(descrSearchText)) {
-        catsSection.innerHTML += kittenTwo;
+        renderKitten(kittenData_2);
     }
     if (kittenDesc3.includes(descrSearchText)) {
-        catsSection.innerHTML += kittenThree;
+        renderKitten(kittenData_3);
+    }else{
+        catsSection.innerHTML = 'no hay gatos que mostrar'; 
     }
-    // if (descrSearchText==="") {catsSection.innerHTML = 'no hay gatos que mostrar';}
-};
+}   
+ 
+/* ejercicios que nos faltan de hacer del 2.6 funcions II, empieza aqui abajo el num 2, faltan tmb 3 y 4*/
 
 const btnSearch = document.querySelector('.js-btn-search');
 btnSearch.addEventListener('click', filterKitten);
@@ -238,4 +283,7 @@ function renderRace(race) {
     }
 }
 
-// kittenRace1.innerHTML = race;
+// kittenRace1.innerHTML = race;.
+
+
+
