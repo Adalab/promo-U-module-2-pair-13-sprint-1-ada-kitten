@@ -1,23 +1,23 @@
 'use strict'
 
 
-const kittenImage1 = 'https://dev.adalab.es/gato-siames.webp';
-const kittenName1 = 'Anastacio';
-const kittenDesc1 = ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.';
-const kittenRace1 = 'Siamés';
+// const kittenImage1 = 'https://dev.adalab.es/gato-siames.webp';
+// const kittenName1 = 'Anastacio';
+// const kittenDesc1 = ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.';
+// const kittenRace1 = 'Siamés';
 
 
 
-const kittenImage2 = 'https://dev.adalab.es/sphynx-gato.webp';
-const kittenName2 = 'Fiona';
-const kittenDesc2 = 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.';  
-const kittenRace2 = 'Sphynx';
+// const kittenImage2 = 'https://dev.adalab.es/sphynx-gato.webp';
+// const kittenName2 = 'Fiona';
+// const kittenDesc2 = 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.';  
+// const kittenRace2 = 'Sphynx';
 
 
-const kittenImage3 = 'https://dev.adalab.es/maine-coon-cat.webp';
-const kittenName3 = 'Cielo';
-const kittenDesc3 = 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.';   
-const kittenRace3 = 'Main Coon'; 
+// const kittenImage3 = 'https://dev.adalab.es/maine-coon-cat.webp';
+// const kittenName3 = 'Cielo';
+// const kittenDesc3 = 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.';   
+// const kittenRace3 = 'Main Coon'; 
 
 
 
@@ -128,48 +128,60 @@ function renderKittenList(kittenDataList){
 renderKittenList(kittenDataList);
 
 
-// el filtro no funcionaaa :(
-
-//  renderKitten(kittenData_2);
-//  renderKitten(kittenData_1);
-//  renderKitten(kittenData_3);
-
-// const filterKitten = (event) => {
+// function filterKitten(event) {
 //     event.preventDefault();
 //     const descrSearchText = input_search_desc.value;
-//     catsSection.innerHTML = "";
-//     if (kittenDesc1.includes(descrSearchText)) {
-//         catsSection.innerHTML = renderKitten(kittenData_1);
+//     catsSection.innerHTML = '';
+
+//     let foundMatch = false; // Variable para rastrear si se encuentra coincidencia
+
+//     for (const kittenItem of kittenDataList) {
+//         if (kittenDesc1.includes(descrSearchText)) {
+//             catsSection.innerHTML = renderKitten(kittenData_1);
+//             foundMatch = true; 
+//         }
+//         if (kittenDesc2.includes(descrSearchText)) {
+//             catsSection.innerHTML = renderKitten(kittenData_2);
+//             foundMatch = true; 
+//         }
+//         if (kittenDesc3.includes(descrSearchText)) {
+//             catsSection.innerHTML = renderKitten(kittenData_3);
+//             foundMatch = true; 
+//         }
+//         if (descrSearchText==="") {catsSection.innerHTML = 'no hay gatos que mostrar';
+//         foundMatch = true; 
+//          }
+//         //  else{catsSection.innerHTML = 'nothing';} PREGUNTAR ESTO
+//     if (!foundMatch) {
+//             catsSection.innerHTML = 'ups! ningún gato coincide'; // Mostrar el mensaje si no se encontraron coincidencias
+//         }
 //     }
-//     if (kittenDesc2.includes(descrSearchText)) {
-//         catsSection.innerHTML = renderKitten(kittenData_2);
-//     }
-//     if (kittenDesc3.includes(descrSearchText)) {
-//         catsSection.innerHTML = renderKitten(kittenData_3);
-//     }else{
-//         catsSection.innerHTML = 'no hay gatos que mostrar'; 
-//     }
-// }   
+// }
+
+/* asi es como nos lo pedían en el ejerccio, usando kittenItem, pero había que cambiar los kittenDesc1, 2 y 3 por kittenItem.desc*/
 
 function filterKitten(event) {
     event.preventDefault();
-    const descrSearchText = input_search_desc.value;
+    const descrSearchText = input_search_desc.value.toLowerCase(); 
     catsSection.innerHTML = '';
+
+    let foundMatch = false; // Variable para rastrear si se encuentra una coincidencia
+
     for (const kittenItem of kittenDataList) {
-        if (kittenDesc1.includes(descrSearchText)) {
-            catsSection.innerHTML = renderKitten(kittenData_1);
+        if (kittenItem.desc.toLowerCase().includes(descrSearchText)) {
+            catsSection.innerHTML += renderKitten(kittenItem);
+            foundMatch = true; // Se encontró una coincidencia
         }
-        if (kittenDesc2.includes(descrSearchText)) {
-            catsSection.innerHTML = renderKitten(kittenData_2);
-        }
-        if (kittenDesc3.includes(descrSearchText)) {
-            catsSection.innerHTML = renderKitten(kittenData_3);
-        // }else{
-        // catsSection.innerHTML = 'No hay gatos que mostrar'; 
-        // }
+        if (descrSearchText==="") {catsSection.innerHTML = 'no hay gatos que mostrar';
+        foundMatch = true; 
+         }
+            }
+
+    if (!foundMatch) {
+        catsSection.innerHTML = 'ups! ningún gato coincide'; // Mostrar el mensaje si no se encontraron coincidencias
     }
 }
-}
+
 
 
 /* ejercicios que nos faltan de hacer del 2.6 funcions II, empieza aqui abajo el num 2, faltan tmb 3 y 4*/
