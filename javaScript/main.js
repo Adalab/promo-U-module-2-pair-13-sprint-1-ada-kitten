@@ -120,30 +120,57 @@ function renderKitten(kittenData) {
     return li;
 }
 
-catsSection.innerHTML+= renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]);
+function renderKittenList(kittenDataList){
+    for (const kittenItem of kittenDataList) {
+        catsSection.innerHTML += renderKitten(kittenItem);
+    };
+}
+renderKittenList(kittenDataList);
+
 
 // el filtro no funcionaaa :(
 
-const filterKitten = (event) => {
-    event.preventDefault();
-    const descrSearchText = input_search_desc.value;
-    catsSection.innerHTML = "";
-    if (kittenDesc1.includes(descrSearchText)) {
-       renderKitten(kittenDataList[0]);
-    }
-    if (kittenDesc2.includes(descrSearchText)) {
-        renderKitten(kittenDataList[1]);
-    }
-    if (kittenDesc3.includes(descrSearchText)) {
-        renderKitten(kittenDataList[3]);
-    }else{
-        // catsSection.innerHTML = 'no hay gatos que mostrar'; 
-    }
-}   
-// renderKitten(kittenData_2);
+//  renderKitten(kittenData_2);
 //  renderKitten(kittenData_1);
 //  renderKitten(kittenData_3);
- 
+
+// const filterKitten = (event) => {
+//     event.preventDefault();
+//     const descrSearchText = input_search_desc.value;
+//     catsSection.innerHTML = "";
+//     if (kittenDesc1.includes(descrSearchText)) {
+//         catsSection.innerHTML = renderKitten(kittenData_1);
+//     }
+//     if (kittenDesc2.includes(descrSearchText)) {
+//         catsSection.innerHTML = renderKitten(kittenData_2);
+//     }
+//     if (kittenDesc3.includes(descrSearchText)) {
+//         catsSection.innerHTML = renderKitten(kittenData_3);
+//     }else{
+//         catsSection.innerHTML = 'no hay gatos que mostrar'; 
+//     }
+// }   
+
+function filterKitten(event) {
+    event.preventDefault();
+    const descrSearchText = input_search_desc.value;
+    catsSection.innerHTML = '';
+    for (const kittenItem of kittenDataList) {
+        if (kittenDesc1.includes(descrSearchText)) {
+            catsSection.innerHTML = renderKitten(kittenData_1);
+        }
+        if (kittenDesc2.includes(descrSearchText)) {
+            catsSection.innerHTML = renderKitten(kittenData_2);
+        }
+        if (kittenDesc3.includes(descrSearchText)) {
+            catsSection.innerHTML = renderKitten(kittenData_3);
+        // }else{
+        // catsSection.innerHTML = 'No hay gatos que mostrar'; 
+        // }
+    }
+}
+}
+
 
 /* ejercicios que nos faltan de hacer del 2.6 funcions II, empieza aqui abajo el num 2, faltan tmb 3 y 4*/
 
@@ -170,8 +197,3 @@ function renderRace(race) {
 }
 
 // kittenRace1.innerHTML = race;.
-
-
-
-
- 

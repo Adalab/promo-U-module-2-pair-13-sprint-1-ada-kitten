@@ -242,7 +242,16 @@ function renderKitten(kittenData) {
     return li;
 }
 
-catsSection.innerHTML+= renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]);
+function renderKittenList(kittenDataList){
+    for (const kittenItem of kittenDataList) {
+        catsSection.innerHTML += renderKitten(kittenItem);
+    };
+}
+renderKittenList(kittenDataList);
+
+
+// catsSection.innerHTML+= renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]);
+// Lo hemos comentado porque tenemos el bucle arriba
 
 //  renderKitten(kittenData_2);
 //  renderKitten(kittenData_1);
